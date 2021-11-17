@@ -37,7 +37,7 @@ const PIPO_MIN_HEIGHT = 16;
 const JUMP_FORCE = 320;
 const SPEED = 120;
 // define gravity
-gravity(1000  );
+gravity(1000);
 // define draw layers and default layer
 layers([
 	"bg",
@@ -47,7 +47,7 @@ layers([
 // background image
 add([
 	sprite("bg"),
-	scale(width() / 200, height() / 200),
+	scale(width() / 1920, height() / 1080),
 	layer("bg"),
 ]);
 // a game object consists of a list of components and tags
@@ -56,7 +56,7 @@ const birdy = add([
 	sprite("mark"),
 	// give it a position
 	pos(120, 0),
-	// add it to the "obj" layer
+	// add it to the "obj" laye
 	layer("obj"),
 	// body component enables it to fall and jump in a gravity world
 	body(),
@@ -81,6 +81,18 @@ keyPress("up", () => {
 	birdy.jump(JUMP_FORCE);
 	play("wooosh");
 });
+  keyPress("g", () => {
+	gravity(gravity + 10);
+});
+  keyPress("d", () => {
+	gravity(100);
+});
+  keyPress("n", () => {
+	gravity(1000);
+});
+
+  
+  
 function spawnPipo() {
 	// calculate pipe positions
 	const h1 = rand(PIPO_MIN_HEIGHT, height() - PIPO_MIN_HEIGHT - PIPO_OPEN);
@@ -123,6 +135,7 @@ action("pipo", (p) => {
 		destroy(p);
 	}
 });
+
 // spawn a pipo every 1 sec
 loop(1, () => {
 	spawnPipo();
@@ -170,5 +183,4 @@ if(score = 10){
 });
 start("main");
   </script>
-<center><font size="2">This is the free demo result. For a full version of this website, please go to  <a href="https://www6.waybackmachinedownloader.com/website-downloader-online/scrape-all-files/">Website Downloader</a></font></center></body>
 </html>

@@ -1,6 +1,6 @@
 // Displays score
 add([
-  text('Score: ' + `${args.score}`),
+  text('Puntos: ' + `${args.score}`),
   pos(width() / 2, height() / 2),
   origin('center')
 ])
